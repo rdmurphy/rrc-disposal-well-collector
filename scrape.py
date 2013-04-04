@@ -43,7 +43,7 @@ def collect_html_pages(injection_type, type):
 
         query['pager.offset'] += 100
 
-        print('Collected {0}-{1} of {2}'.format(offset_num, offset_num+100, type))
+        print('Collected {0}-{1} of {2} from RRC'.format(offset_num, offset_num+100, type))
 
 
 def main():
