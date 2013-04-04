@@ -39,6 +39,7 @@ with open('well_data_output/well_data.csv', 'wb') as rfile:
     ])
 
     for path in WELL_FILES_PATHS:
+        print('Working on {0}'.format(path))
         with open(path, 'rb') as well_file:
             table_rows = pq(well_file.read()).find('table').eq(8).find('tr')
             for i, row in enumerate(table_rows):
