@@ -20,13 +20,13 @@ DEFAULT_PAYLOAD = {
 def get_number_of_records(url, query):
     p = pq(url, query, method='post')
     pager_links = p.find('table.DataGrid tr').eq(0).find('a')
-    num_of_records = pager_links.eq(len(pager_links)-1).text()
+    num_of_records = pager_links.eq(len(pager_links) - 1).text()
 
     return int(num_of_records) * 100
 
 
 def write_html_to_disk(html_page, offset, type):
-    with open('well_html/wells_offset_' + str(offset) + '_(' + type + ').html', 'wb') as f:
+    with open('well_html/wells_offset_{0}_({1}).html'.format(offset, type), 'wb') as f:
         f.write(html_page)
 
 
@@ -43,7 +43,7 @@ def collect_html_pages(injection_type, type):
 
         query['pager.offset'] += 100
 
-        print('Collected {0}-{1} of {2} from RRC'.format(offset_num, offset_num+100, type))
+        print('Collected {0}-{1} of {2} from RRC'.format(offset_num, offset_num + 100, type))
 
 
 def main():
